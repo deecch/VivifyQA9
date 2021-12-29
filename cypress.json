@@ -1,0 +1,7 @@
+{
+    "baseUrl": "https://gradebook.vivifyideas.com",
+    "env": {
+        "validUserMail": "dejan@email.com",
+        "validUserPass": "1234567u"
+    }
+}
