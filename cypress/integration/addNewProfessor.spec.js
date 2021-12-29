@@ -1,5 +1,6 @@
 const faker = require('faker');
 import { name } from "../../config";
+import { login } from '../page_object/login';
 
 describe('Add new professor', () => {
 
@@ -12,8 +13,9 @@ describe('Add new professor', () => {
     }
 
     before('login to application', () => {
-        cy.loginViaBackend()
-        
+        //cy.loginViaBackend()
+        cy.visit('/login')
+        login.login(Cypress.env('validUserMail'), Cypress.env('validUserPass'));
     })
 
     it('add new professor with valid data', () => {
@@ -28,7 +30,9 @@ describe('Add new professor', () => {
                     "last_name": userData.lastName,
                     "gradebook_id":684,
                     "imageUrl":[userData.randomImg]
-                }
-            });
+                }.its('response').then((interception) => {
+                    console.log(interception.response)
+                })
+        });
     });
 });

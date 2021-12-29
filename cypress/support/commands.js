@@ -32,7 +32,7 @@ Cypress.Commands.add('loginViaBackend', () => {
                 email: Cypress.env('validUserMail'),
                 password: Cypress.env('validUserPass')
           }
-    })//.its('body').then((response) => {
-      //    window.localStorage.setItem('token', response.token)
-    //})
+    }).its('body').then((response) => {
+             window.localStorage.setItem('token', response.token)
+    })
 })
