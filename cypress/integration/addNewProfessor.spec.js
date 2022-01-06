@@ -9,7 +9,7 @@ describe('Add new professor', () => {
 
     let userData = {
         randomLastName: faker.name.lastName(),
-        randomImg: faker.image.imageUrl() + '.jpg'
+        randomImg: faker.image.imageUrl() + '.jpg',
         
     }
 
@@ -36,7 +36,9 @@ describe('Add new professor', () => {
         }).as('professor')
         addProfessor.addNewProfessor(name, userData.randomLastName, userData.randomImg)
         cy.wait('@professor').then((interception) => { 
-            console.log(interception.response)    
+            console.log(interception.response) 
+            expect(interception.response.body).to.eq('')   
+            expect(interception.response.statusMessage).to.eq('OK')
         })
         header.titleGeradeBooks.should('contain', headersTitle.allProfessors)
         header.userField.should('exist')
