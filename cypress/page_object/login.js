@@ -12,6 +12,10 @@ class Login {
         return cy.get('button[class="btn btn-outline-primary"]')
     }
 
+    get titleLogin() {
+        return cy.get('h4')
+    }
+
     login(userName, pass) {
         this.userName.type(userName)
         this.passField.type(pass)

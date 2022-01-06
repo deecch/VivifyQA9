@@ -1,0 +1,12 @@
+{
+    "headersTitle":{
+        "geradeBookPage": "The Gradebooks List",
+        "allProfessors": "All Professors",
+        "newBook": "Create new gradebook",
+        "newProfessor": "Create new professor.",
+        "myGeradeBooks": "You don't have gradebook yet.",
+        "loginTitel": "Please Login.",
+        "registerTitel": "Please Login."
+
+    }
+}

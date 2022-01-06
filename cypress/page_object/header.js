@@ -17,7 +17,11 @@ class Header {
     }
 
     get userField () {
-        cy.get('#nav-collapse')
+        return cy.get('a[class="nav-link dropdown-toggle"]').contains('User')
+    }
+
+    get titleGeradeBooks () {
+        return cy.get('h1')
     }
 }
 
