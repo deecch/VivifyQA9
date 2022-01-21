@@ -17,11 +17,11 @@ class AddProfessor {
     }
 
     get imageField () {
-        return cy.get('#__BVID__766')
+        return cy.get('div[class="bv-no-focus-ring col"]').children().eq(2)
     }
 
     get submitBtn () {
-        return cy.get('button[class="btn btn-secondary"]')
+        return cy.get('button').contains('Submit')
     }
 
     get cancelBtn () {

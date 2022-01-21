@@ -25,14 +25,23 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add('loginViaBackend', () => {
-    cy.request({
-          method: "POST",
-          url: 'https://gradebook-api.vivifyideas.com/api/login',
-          body: {
-                email: Cypress.env('validUserMail'),
-                password: Cypress.env('validUserPass')
-          }
-    }).its('body').then((response) => {
-             window.localStorage.setItem('token', response.token)
-    })
+      cy.request({
+            method: "POST",
+            url: 'https://gradebook-api.vivifyideas.com/api/login',
+            body: {
+                  email: Cypress.env('validUserMail'),
+                  password: Cypress.env('validUserPass')
+            }
+      }).its('body').then((response) => {
+                  window.localStorage.setItem('token', response.token)
+      })
+
+})
+
+Cypress.Commands.add('waitLogin', (name) => {
+      cy.wait(name).then((interception) => { 
+            console.log(interception.response)
+            expect(interception.response.statusMessage).to.eq('OK')
+            expect(interception.response.statusCode).to.eq(200)    
+      })
 })

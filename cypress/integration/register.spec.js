@@ -1,6 +1,7 @@
 import { header } from '../page_object/header';
 import { register } from '../page_object/register';
 const faker = require('faker');
+import { headersTitle } from '../fixtures/headers.json';
 
 describe('register new user', () => {
 
@@ -28,6 +29,9 @@ describe('register new user', () => {
             expect(interception.response.body.token).to.not.eq('undifined')
             expect(interception.response.statusCode).to.eq(201)    
         })
+        header.titleGeradeBooks.should('contain', headersTitle.geradeBookPage)
         header.register.should('not.contain')
+        header.userField.should('exist')
     });
+
 });
